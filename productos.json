@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Remera básica",
+    "precio": 1500,
+    "categoria": "Ropa masculina",
+    "talla": "M",
+    "color": "Blanco",
+    "stock": 50,
+    "material": "Algodón",
+    "marca": "Marca X",
+    "descripcion": "Remera básica de algodón.",
+    "imagenes": [
+      "remera1.jpg",
+      "remera1-2.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Campera impermeable",
+    "precio": 4500,
+    "categoria": "Ropa unisex",
+    "talla": "L",
+    "color": "Negro",
+    "stock": 15,
+    "material": "Poliéster",
+    "marca": "Marca Z",
+    "descripcion": "Campera ideal para días de lluvia.",
+    "imagenes": [
+      "campera1.jpg",
+      "campera1-2.jpg"
+    ]
+  }
+]
