@@ -50,20 +50,22 @@ app.listen(3000, () => {
 
 // Filtrar productos
 app.get('/productos/filtrar', (req, res) => {
-    const { categoria, color, talla, precioMin, precioMax } = req.query;
-  
-    fs.readFile('productos.json', 'utf-8', (err, data) => {
+  const { categoria, color, talla, precioMin, precioMax } = req.query;
+
+  fs.readFile('productos.json', 'utf-8', (err, data) => {
       if (err) return res.status(500).send('Error al leer el archivo.');
+      
       let productos = JSON.parse(data);
-  
+
       // Filtros dinámicos
       if (categoria) productos = productos.filter(p => p.categoria === categoria);
       if (color) productos = productos.filter(p => p.color === color);
       if (talla) productos = productos.filter(p => p.talla === talla);
       if (precioMin) productos = productos.filter(p => p.precio >= parseFloat(precioMin));
       if (precioMax) productos = productos.filter(p => p.precio <= parseFloat(precioMax));
-  
+
       res.send(productos);
-    });
   });
+});
+
   
