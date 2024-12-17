@@ -62,3 +62,16 @@ app.post('/productos', upload.array('imagenes', 5), (req, res) => {
 app.listen(3000, () => {
   console.log('Servidor corriendo en http://localhost:3000');
 });
+
+app.delete('/productos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  fs.readFile('productos.json', 'utf-8', (err, data) => {
+    if (err) return res.status(500).send('Error al leer el archivo.');
+    let productos = JSON.parse(data);
+    productos = productos.filter(p => p.id !== id);
+    fs.writeFile('productos.json', JSON.stringify(productos, null, 2), (err) => {
+      if (err) return res.status(500).send('Error al guardar el archivo.');
+      res.send('Producto eliminado con éxito.');
+    });
+  });
+});
